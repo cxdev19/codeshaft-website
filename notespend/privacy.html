@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - NoteSpend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #d1d1d6;
+            background: #000000;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #5856D6;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #fff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        h3 {
+            color: #e5e5ea;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        p,
+        li {
+            margin-bottom: 10px;
+            color: #aeaeb2;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        .highlight {
+            background: #1c1c1e;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #AF52DE;
+            margin: 20px 0;
+            color: #fff;
+        }
+
+        a {
+            color: #AF52DE;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p>Last Updated: January 30, 2026</p>
+
+        <div class="highlight">
+            <strong>TL;DR:</strong> Your financial data belongs to you. NoteSpend stores your transactions locally on
+            your device. When you use AI features, your text is processed anonymously and discarded immediately. We do
+            not sell your data.
+        </div>
+
+        <h2>1. Information We Collect</h2>
+
+        <h3>1.1 Automatically Collected Data</h3>
+        <ul>
+            <li><strong>Usage Statistics:</strong> We track anonymous usage counts (e.g., "50 AI requests made") to
+                enforce subscription quotas and preventing abuse.</li>
+            <li><strong>Device Identifier:</strong> We use an anonymous identifier derived from your iCloud account
+                (CloudKit User Record ID) to sync your Pro subscription status across devices.</li>
+            <li><strong>Crash Reports:</strong> Anonymous crash logs provided by Apple to help us fix bugs.</li>
+        </ul>
+
+        <h3>1.2 Data Processed via AI</h3>
+        <p>When you type a note (e.g., "Sushi $40"), the text is sent to our secure backend.</p>
+        <ul>
+            <li><strong>Processor:</strong> We use Google Gemini (via Google Cloud/Cloudflare) to parse your text.</li>
+            <li><strong>Retention:</strong> Your text is processed in memory and <strong>discarded immediately</strong>
+                after the response is generated. We do not use your financial data to train AI models.</li>
+        </ul>
+
+        <h2>2. Where Your Data Lives</h2>
+        <ul>
+            <li><strong>Financial Data:</strong> Your journals, transactions, and budgets are stored <strong>locally on
+                    your device</strong>.</li>
+            <li><strong>iCloud Sync (Pro):</strong> If you are a Pro subscriber, your data syncs via Apple's CloudKit.
+                This data is encrypted by Apple and accessible only by you. We cannot see it.</li>
+        </ul>
+
+        <h2>3. How We Use Information</h2>
+        <ul>
+            <li>To provide the Service (parsing your notes into transactions).</li>
+            <li>To manage your subscription status (Free vs. Pro).</li>
+            <li>To enforce fair usage limits preventing API abuse.</li>
+        </ul>
+
+        <h2>4. Data Sharing</h2>
+        <p>We do not sell, rent, or share your personal data with third parties. Data is only shared with service
+            providers necessary to run the app:</p>
+        <ul>
+            <li><strong>Google (Gemini):</strong> For AI text parsing.</li>
+            <li><strong>Cloudflare:</strong> For secure API infrastructure and rate limiting.</li>
+            <li><strong>Apple:</strong> For payment processing and iCloud sync.</li>
+        </ul>
+
+        <h2>5. Your Rights</h2>
+        <p>Since your data is stored locally or in your private iCloud:</p>
+        <ul>
+            <li><strong>Access/Export:</strong> You can view all your data within the app.</li>
+            <li><strong>Delete:</strong> Deleting the app/data from your device enables you to remove your local data.
+                You can manage iCloud data via your Apple ID settings.</li>
+        </ul>
+
+        <h2>6. Contact</h2>
+        <p>If you have any questions, please contact us at <a
+                href="mailto:support@notespend.app">support@notespend.app</a>.</p>
+    </div>
+</body>
+
+</html>
