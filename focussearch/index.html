@@ -2,70 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Focus Search - Code Shaft Studio</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #555;
-        }
-
-        a {
-            display: inline-block;
-            margin: 0.5rem 0;
-            font-size: 1.1rem;
-            text-decoration: none;
-            color: #007BFF;
-            border: 1px solid #007BFF;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background-color 0.2s, color 0.2s;
-        }
-
-        a:hover {
-            background-color: #007BFF;
-            color: #fff;
-        }
-
-        .email-link {
-            display: block;
-            margin-top: 2rem;
-            font-size: 1rem;
-            color: #555;
-            text-decoration: underline;
-        }
-
-        .email-link:hover {
-            color: #000;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus Search by Code Shaft Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>:root{--bg-color:#050507;--text-primary:#ffffff;--text-secondary:#a1a1aa;--text-tertiary:#52525b;--card-bg:rgba(255,255,255,0.02);--card-border:rgba(255,255,255,0.05);--accent-color:#818cf8}*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}body{font-family:'Outfit',sans-serif;background-color:var(--bg-color);color:var(--text-primary);overflow-x:hidden;line-height:1.6}.bg-glow{position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:-1}.bg-glow-1{position:absolute;top:-10%;left:-10%;width:50vw;height:50vw;background:radial-gradient(circle,rgba(99,102,241,0.06) 0%,rgba(5,5,7,0) 60%);border-radius:50%;filter:blur(120px)}.bg-glow-2{position:absolute;bottom:-10%;right:-10%;width:60vw;height:60vw;background:radial-gradient(circle,rgba(168,85,247,0.04) 0%,rgba(5,5,7,0) 60%);border-radius:50%;filter:blur(120px)}.noise-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")}.container{max-width:900px;margin:0 auto;padding:0 2rem}nav{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:center}.logo{font-size:1.4rem;font-weight:700;display:flex;align-items:center;gap:12px;color:var(--text-primary);text-decoration:none}.logo-mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#4f46e5,#a855f7);box-shadow:0 4px 12px rgba(99,102,241,0.3)}.nav-links a{color:var(--text-secondary);text-decoration:none;font-weight:500}.nav-links a:hover{color:var(--text-primary)}.app-header{display:flex;align-items:center;gap:3rem;padding:5rem 0;animation:fadeIn 1s forwards}.app-hero-icon{width:160px;height:160px;border-radius:36px;box-shadow:0 20px 40px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1)}.app-title{font-size:4rem;font-weight:600;letter-spacing:-1.5px;margin-bottom:0.5rem;line-height:1.1}.app-subtitle{font-size:1.25rem;color:var(--text-secondary);max-width:500px;font-weight:300}.primary-btn{display:inline-flex;align-items:center;gap:8px;padding:1rem 2rem;border-radius:100px;background:#fff;color:#000;font-weight:600;text-decoration:none;margin-top:1.5rem;transition:transform 0.3s}.primary-btn:hover{transform:translateY(-2px)}.content-section{background:var(--card-bg);border:1px solid var(--card-border);border-radius:24px;padding:3rem;margin-bottom:4rem;animation:fadeIn 1s forwards 0.2s;opacity:0}.content-section h2{font-size:1.8rem;margin-bottom:1.5rem;font-weight:500}.content-section p{color:var(--text-secondary);margin-bottom:1.2rem;font-size:1.05rem;font-weight:300}.content-section ul{color:var(--text-secondary);margin-bottom:1.5rem;padding-left:1.5rem}.content-section li{margin-bottom:0.8rem;font-weight:300}footer{padding:3rem 0;text-align:center;color:var(--text-tertiary);border-top:1px solid var(--card-border);display:flex;justify-content:space-between;align-items:center}footer a{color:var(--text-tertiary);text-decoration:none;margin-left:2rem}footer a:hover{color:var(--text-secondary)}@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media (max-width:768px){.app-header{flex-direction:column;text-align:center}.app-subtitle{margin:0 auto}footer{flex-direction:column;gap:1.5rem}footer a{margin:0 1rem}}</style>
 </head>
 <body>
+    <div class="noise-overlay"></div>
+    <div class="bg-glow">
+        <div class="bg-glow-1"></div>
+        <div class="bg-glow-2"></div>
+    </div>
+    <div class="container">
+        <nav>
+            <a href="../index.html" class="logo"><div class="logo-mark"></div> Code Shaft Studio</a>
+            <div class="nav-links"><a href="../index.html">Back</a></div>
+        </nav>
+        
+        <header class="app-header">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/54/e3/01/54e3013d-be99-daeb-ab42-b8a8898ce80c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" class="app-hero-icon" alt="Focus Search Icon">
+            <div>
+                <h1 class="app-title">FocusSearch</h1>
+                <p class="app-subtitle">Stay focused. Skip the feed. Navigate the digital noise safely.</p>
+                <a href="https://apps.apple.com/us/app/focus-search-skip-feed-search/id6747658546" class="primary-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"></path><path d="M10 2c1 .5 2 2 2 5"></path></svg>
+                    Download on the App Store
+                </a>
+            </div>
+        </header>
 
-    <h1>Focus Search</h1>
-    <p>Stay focused. Skip the feed. Search smarter.</p>
-
-    <a href="terms.html">Terms of Use</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="../index.html">← Back to Code Shaft Studio</a>
-
-    <a class="email-link" href="mailto:support@codeshaft.app">Contact Support: support@codeshaft.app</a>
-
+        <section class="content-section">
+            <h2>About Focus Search</h2>
+            <p>We’ve all been there. You open an app to search for something specific, but before you even type it in, you’re lost in the feed. Minutes pass. The task? Forgotten.</p>
+            <p>Focus Search is a tool for people who still need to use content-heavy apps but don’t want to get trapped in their attention-hijacking designs. It lets you launch directly into your search query—bypassing feeds, stories, and recommendation loops entirely.</p>
+            
+            <h2 style="margin-top: 2rem; font-size: 1.4rem;">Core Features</h2>
+            <ul>
+                <li><strong>Direct Launching:</strong> Launch searches directly in popular apps without ever landing on the timeline or feed.</li>
+                <li><strong>Accountability Reminders:</strong> Set "Return Goals" to track if you stayed on task or got distracted.</li>
+                <li><strong>Link Vault:</strong> Save links safely to a powerful, taggable Link Vault, organizing your resources by app without opening them.</li>
+            </ul>
+        </section>
+        
+        <footer>
+            <div>&copy; 2026 Code Shaft Studio.</div>
+            <div>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
