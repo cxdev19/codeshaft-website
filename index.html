@@ -2,258 +2,456 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Code Shaft Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Shaft Studio | Premium Built iOS Experiences</title>
+    <meta name="description" content="A premium app development studio crafting elegant, frictionless experiences for productivity, wellness, and intentional living." />
+    
+    <!-- Preconnect fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --bg-color: #050507;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #52525b;
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --card-hover-border: rgba(255, 255, 255, 0.12);
+            --card-hover-bg: rgba(255, 255, 255, 0.04);
+            --accent-glow: rgba(99, 102, 241, 0.2);
+            --accent-color: #818cf8;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
-            color: #fff;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
             overflow-x: hidden;
+            line-height: 1.6;
+            margin: 0;
         }
 
-        /* Animated background particles */
-        .particles {
+        /* Ambient Background Glows */
+        .bg-glow {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 0;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none; z-index: -1; overflow: hidden;
+        }
+        .bg-glow-1 {
+            position: absolute; top: -10%; left: -10%; width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, rgba(5,5,7,0) 60%);
+            border-radius: 50%; filter: blur(120px);
+            animation: float-glow 25s infinite alternate ease-in-out;
+        }
+        .bg-glow-2 {
+            position: absolute; bottom: -10%; right: -10%; width: 60vw; height: 60vw;
+            background: radial-gradient(circle, rgba(168,85,247,0.04) 0%, rgba(5,5,7,0) 60%);
+            border-radius: 50%; filter: blur(120px);
+            animation: float-glow 20s infinite alternate-reverse ease-in-out;
+        }
+        
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(108, 99, 255, 0.6);
-            border-radius: 50%;
-            animation: float 15s infinite ease-in-out;
+        @keyframes float-glow {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.1) translate(3vw, -3vw); }
+            100% { transform: scale(0.95) translate(-2vw, 2vw); }
         }
 
-        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
-        .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 40%; animation-delay: 1s; }
-        .particle:nth-child(5) { left: 50%; animation-delay: 3s; }
-        .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
-        .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; }
-        .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; }
-        .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        /* Logo animation */
-        .logo {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #6C63FF, #00D9FF);
+        /* Container & Grid */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; }
+        .section-padding { padding: 8rem 0; }
+        .text-center { text-align: center; }
+        .text-gradient {
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-            animation: fadeInUp 0.8s ease-out;
         }
 
-        .tagline {
-            font-size: 1.2rem;
-            color: #888;
-            margin-bottom: 3rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+        /* Navigation */
+        nav {
+            padding: 2.5rem 0;
+            display: flex; justify-content: space-between; align-items: center;
+            animation: fade-in-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .logo {
+            font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px;
+            display: flex; align-items: center; gap: 12px;
+            color: var(--text-primary); text-decoration: none;
+        }
+        .logo-mark {
+            width: 28px; height: 28px; border-radius: 8px;
+            background: linear-gradient(135deg, #4f46e5, #a855f7);
+            position: relative; overflow: hidden;
+            box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+        }
+        .logo-mark::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%);
+        }
+        .nav-links { display: flex; gap: 2.5rem; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+
+        /* Hero */
+        .hero { padding: 7rem 0 6rem; max-width: 850px; margin: 0 auto; animation: fade-in-up 1s forwards 0.2s; opacity: 0; }
+        .hero h1 { font-size: clamp(3.2rem, 6vw, 6rem); font-weight: 600; line-height: 1.05; letter-spacing: -2.5px; margin-bottom: 1.5rem; }
+        .hero p { font-size: 1.35rem; color: var(--text-secondary); margin-bottom: 3.5rem; font-weight: 300; max-width: 650px; margin-inline: auto; }
+        
+        .hero-buttons { display: flex; align-items: center; justify-content: center; gap: 1rem; }
+        
+        /* Buttons */
+        .primary-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 1rem 2rem; border-radius: 100px;
+            background: linear-gradient(180deg, #ffffff 0%, #e4e4e7 100%); 
+            color: #09090b; font-weight: 600; text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 4px 14px rgba(255,255,255,0.1);
+        }
+        .primary-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 6px 20px rgba(255,255,255,0.15);
+        }
+        .secondary-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 1rem 2rem; border-radius: 100px;
+            background: rgba(255,255,255,0.05); color: var(--text-primary);
+            font-weight: 500; text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .secondary-btn:hover {
+            background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Mouse Tracking Premium Philosophy Cards */
+        .philosophy-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+            margin-top: 2rem; animation: fade-in-up 1s forwards 0.4s; opacity: 0;
+            position: relative;
         }
+        .value-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 2.5rem 2rem; border-radius: 24px; text-align: left;
+            position: relative; overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .value-card:hover { transform: translateY(-4px); }
+        
+        /* The glow effect follows mouse */
+        .value-card::before {
+            content: ""; position: absolute; inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(
+                400px circle at var(--mouse-x) var(--mouse-y),
+                rgba(255, 255, 255, 0.08),
+                transparent 40%
+            );
+            z-index: 0; opacity: 0; transition: opacity 0.5s; pointer-events: none;
+        }
+        .value-card:hover::before { opacity: 1; }
+        
+        .value-content { position: relative; z-index: 1; }
+        .value-icon-container { 
+            width: 50px; height: 50px; border-radius: 12px; margin-bottom: 2rem;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.1); color: var(--text-primary);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.05);
+        }
+        .value-card h3 { font-size: 1.3rem; font-weight: 500; margin-bottom: 0.75rem; color: var(--text-primary); letter-spacing: -0.3px; }
+        .value-card p { font-size: 1rem; color: var(--text-secondary); font-weight: 300; line-height: 1.6; }
 
-        /* App cards */
-        .apps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+        /* App Showcase */
+        .showcase-title {
+            text-align: center; font-size: 2.5rem; font-weight: 600; letter-spacing: -1px;
+            margin-bottom: 1rem; color: var(--text-primary);
+        }
+        .showcase-subtitle { text-align: center; color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 4rem; }
+        
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem;
         }
 
         .app-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            text-decoration: none;
-            color: #fff;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out both;
+            background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 28px;
+            padding: 2.5rem; text-decoration: none; color: var(--text-primary);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(20px); position: relative; overflow: hidden;
+            display: flex; flex-direction: column; opacity: 0; transform: translateY(20px);
         }
-
-        .app-card:nth-child(1) { animation-delay: 0.3s; }
-        .app-card:nth-child(2) { animation-delay: 0.4s; }
-        .app-card:nth-child(3) { animation-delay: 0.5s; }
-
+        
+        .loaded { opacity: 1 !important; transform: translateY(0) !important; animation: none !important; }
+        
+        .app-card::after {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 60%);
+            opacity: 0; transition: opacity 0.5s; z-index: 0;
+        }
         .app-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(108, 99, 255, 0.5);
-            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+            transform: translateY(-8px); background: var(--card-hover-bg); border-color: var(--card-hover-border);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .app-card:hover::after { opacity: 1; }
+
+        .card-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+        .app-icon-wrapper {
+            width: 72px; height: 72px; border-radius: 18px; margin-bottom: 2rem;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: all 0.5s; overflow: hidden; display: flex;
+        }
+        .app-icon-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .app-card:hover .app-icon-wrapper {
+            transform: scale(1.08) translateY(-4px); border-color: rgba(255,255,255,0.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
 
-        .app-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+        .app-badges { display: flex; gap: 8px; margin-bottom: 1rem; }
+        .badge { padding: 4px 10px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
 
-        .app-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .app-name { font-size: 1.6rem; font-weight: 500; margin-bottom: 0.75rem; letter-spacing: -0.5px; }
+        .app-desc { color: var(--text-secondary); font-size: 1.05rem; flex: 1; margin-bottom: 2.5rem; font-weight: 300; }
+        
+        .card-footer {
+            display: flex; align-items: center; justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem; margin-top: auto;
+            transition: border-color 0.4s;
         }
+        .card-link-text { font-size: 0.85rem; font-weight: 600; color: var(--text-tertiary); transition: color 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .app-card:hover .card-link-text { color: var(--text-primary); }
+        .arrow-icon { color: var(--text-tertiary); transition: all 0.4s; transform: translateX(0); }
+        .app-card:hover .arrow-icon { color: var(--text-primary); transform: translateX(6px); }
 
-        .app-desc {
-            font-size: 0.95rem;
-            color: #aaa;
-            line-height: 1.5;
+        /* CTA Section */
+        .cta-section {
+            background: radial-gradient(circle at center, rgba(168,85,247,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.05); padding: 7rem 2rem; text-align: center; border-radius: 40px; 
+            margin-bottom: 4rem; opacity: 0; transform: translateY(20px); box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+            position: relative; overflow: hidden;
+            margin-top: 6rem;
         }
-
-        .arrow {
-            display: inline-block;
-            margin-top: 1rem;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
+        .cta-section::before {
+            content: ''; position: absolute; top: 0; left: 20%; right: 20%; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
         }
-
-        .app-card:hover .arrow {
-            transform: translateX(10px);
-        }
+        .cta-section h2 { font-size: 3rem; margin-bottom: 1rem; letter-spacing: -1.5px; }
+        .cta-section p { color: var(--text-secondary); margin-bottom: 3rem; max-width: 500px; margin-inline: auto; font-size: 1.15rem; line-height: 1.6; }
 
         /* Footer */
-        footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
+        footer { padding: 4rem 0; text-align: center; color: var(--text-tertiary); border-top: 1px solid var(--card-border); }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+        .footer-logo { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-secondary); }
+        .footer-logo .logo-mark { width: 22px; height: 22px; border-radius: 6px; }
+        .footer-links { display: flex; gap: 2rem; }
+        .footer-links a { color: var(--text-tertiary); text-decoration: none; transition: color 0.3s; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--text-secondary); }
 
-        footer p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #6C63FF;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
+        /* Animations */
+        @keyframes fade-in-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fade-in-down { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Responsive */
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .logo { font-size: 3rem; }
-            .apps { grid-template-columns: 1fr; }
+        @media (max-width: 768px) {
+            .hero { padding: 5rem 0 3rem; }
+            .hero h1 { font-size: 2.75rem; letter-spacing: -1px; }
+            .philosophy-grid { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .hero-buttons a { width: 100%; }
+            .cta-section h2 { font-size: 2.2rem; }
+            .footer-content { flex-direction: column; text-align: center; justify-content: center; }
         }
     </style>
 </head>
 <body>
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+    <div class="noise-overlay"></div>
+    <div class="bg-glow">
+        <div class="bg-glow-1"></div>
+        <div class="bg-glow-2"></div>
     </div>
 
     <div class="container">
-        <div class="logo">⚡</div>
-        <h1>Code Shaft Studio</h1>
-        <p class="tagline">Crafting thoughtful apps for everyday life</p>
-
-        <div class="apps">
-            <a href="onboard/index.html" class="app-card">
-                <div class="app-icon">🚀</div>
-                <div class="app-name">Onboard</div>
-                <div class="app-desc">Focus timer that transforms work and study into a virtual journey.</div>
-                <span class="arrow">→</span>
+        <nav>
+            <a href="/" class="logo">
+                <div class="logo-mark"></div>
+                Code Shaft Studio
             </a>
+            <div class="nav-links">
+                <a href="#apps">Apps</a>
+                <a href="https://apps.apple.com/us/developer/chyi-xiang-ong/id1818983387" target="_blank">App Store</a>
+            </div>
+        </nav>
 
-            <a href="focussearch/index.html" class="app-card">
-                <div class="app-icon">🔍</div>
-                <div class="app-name">Focus Search</div>
-                <div class="app-desc">Skip the feed. Search smarter. Stay focused.</div>
-                <span class="arrow">→</span>
-            </a>
+        <section class="hero text-center" id="home">
+            <h1 class="text-gradient">Designing Focus.<br>Building Clarity.</h1>
+            <p>We are an independent app studio crafting sophisticated, native experiences. Our tools are built to strip away digital noise, foster wellness, and help you live life on your terms.</p>
+            <div class="hero-buttons">
+                <a href="#apps" class="primary-btn">Explore Apps</a>
+                <a href="https://apps.apple.com/us/developer/chyi-xiang-ong/id1818983387" target="_blank" class="secondary-btn">View Developer Profile</a>
+            </div>
+        </section>
 
-            <a href="dreamu/index.html" class="app-card">
-                <div class="app-icon">🌙</div>
-                <div class="app-name">Dreamu</div>
-                <div class="app-desc">AI-powered dream journal. Record, analyze, visualize.</div>
-                <span class="arrow">→</span>
-            </a>
 
-            <a href="notespend/index.html" class="app-card">
-                <div class="app-icon">💵</div>
-                <div class="app-name">NoteSpend</div>
-                <div class="app-desc">Journal based money tracker, skip the forms.</div>
-                <span class="arrow">→</span>
-            </a>
 
-            <a href="lumi/index.html" class="app-card">
-                <div class="app-icon">☀️</div>
-                <div class="app-name">Lumi</div>
-                <div class="app-desc">Daily affirmations</div>
-                <span class="arrow">→</span>
+        <!-- App Ecosystem Showcase -->
+        <section class="section-padding" id="apps" style="padding-top: 0;">
+            <h2 class="showcase-title">Apps</h2>
+            <p class="showcase-subtitle">Specialized tools. One cohesive vision.</p>
+            
+            <div class="grid">
+                <!-- Lumi -->
+                <a href="lumi/index.html" class="app-card scroll-animate">
+                    <div class="card-content">
+                        <div class="app-badges">
+                            <span class="badge">Wellness</span>
+                        </div>
+                        <div class="app-icon-wrapper">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b6/e9/02/b6e90272-1f91-51be-a34a-c17441d73390/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/256x256bb.jpg" alt="Lumi App Icon">
+                        </div>
+                        <h3 class="app-name">Lumi</h3>
+                        <p class="app-desc">Ambient daily affirmations. Cultivate a positive mindset right from your lock and home screens seamlessly.</p>
+                        <div class="card-footer">
+                            <span class="card-link-text">Explore Feature</span>
+                            <span class="arrow-icon">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Onboard -->
+                <a href="onboard/index.html" class="app-card scroll-animate">
+                    <div class="card-content">
+                        <div class="app-badges">
+                            <span class="badge">Productivity</span>
+                        </div>
+                        <div class="app-icon-wrapper">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/97/9e/19/979e192c-7c4f-09a0-9f59-26ff424bd1f9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" alt="Onboard App Icon">
+                        </div>
+                        <h3 class="app-name">Onboard</h3>
+                        <p class="app-desc">Gamified focus timer. Transform tedious work and study tasks into engaging virtual train journeys.</p>
+                        <div class="card-footer">
+                            <span class="card-link-text">Explore Feature</span>
+                            <span class="arrow-icon">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Focus Search -->
+                <a href="focussearch/index.html" class="app-card scroll-animate">
+                    <div class="card-content">
+                        <div class="app-badges">
+                            <span class="badge">Utility</span>
+                        </div>
+                        <div class="app-icon-wrapper">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/54/e3/01/54e3013d-be99-daeb-ab42-b8a8898ce80c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" alt="Focus Search App Icon">
+                        </div>
+                        <h3 class="app-name">Focus Search</h3>
+                        <p class="app-desc">Digital minimalism. Search the web and find exactly what you need without the distraction of algorithmic loops.</p>
+                        <div class="card-footer">
+                            <span class="card-link-text">Explore Feature</span>
+                            <span class="arrow-icon">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- NoteSpend -->
+                <a href="notespend/index.html" class="app-card scroll-animate">
+                    <div class="card-content">
+                        <div class="app-badges">
+                            <span class="badge">Finance</span>
+                        </div>
+                        <div class="app-icon-wrapper">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4f/4b/db/4f4bdb0c-e219-5aa9-a3a0-aae088aac25a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" alt="NoteSpend App Icon">
+                        </div>
+                        <h3 class="app-name">NoteSpend</h3>
+                        <p class="app-desc">Frictionless finance tracking. A fast, journal-based expense tracker that skips complex and rigid forms.</p>
+                        <div class="card-footer">
+                            <span class="card-link-text">Explore Feature</span>
+                            <span class="arrow-icon">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Dreamu -->
+                <a href="dreamu/index.html" class="app-card scroll-animate">
+                    <div class="card-content">
+                        <div class="app-badges">
+                            <span class="badge">AI Journal</span>
+                        </div>
+                        <div class="app-icon-wrapper">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d0/a2/cd/d0a2cd46-ff0d-d21a-dfc7-e16bcd606a8a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" alt="Dreamu App Icon">
+                        </div>
+                        <h3 class="app-name">Dreamu</h3>
+                        <p class="app-desc">Privacy-first AI dream journaling. Intuitively record, interpret, and visually generate your subconscious thoughts.</p>
+                        <div class="card-footer">
+                            <span class="card-link-text">Explore Feature</span>
+                            <span class="arrow-icon">→</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Final Developer CTA -->
+        <section class="cta-section scroll-animate">
+            <h2>Ready to transform your routine?</h2>
+            <p>Our tools are available globally across the Apple ecosystem. Start your journey toward less distraction, more focus, and better living today.</p>
+            <a href="https://apps.apple.com/us/developer/chyi-xiang-ong/id1818983387" target="_blank" class="primary-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"></path><path d="M10 2c1 .5 2 2 2 5"></path></svg>
+                View on the App Store
             </a>
-        </div>
+        </section>
 
         <footer>
-            <p>© 2025 Code Shaft Studio · <a href="mailto:support@codeshaft.app">support@codeshaft.app</a></p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-mark"></div>
+                    <span>Code Shaft Studio</span>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:support@codeshaft.app">Contact</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+                <div style="font-size: 0.9rem;">
+                    &copy; 2026 Code Shaft Studio.
+                </div>
+            </div>
         </footer>
     </div>
+    
+    <script>
+        // Intersection Observer for scroll animations
+        document.addEventListener("DOMContentLoaded", () => {
+            const elements = document.querySelectorAll('.scroll-animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            
+            elements.forEach(el => observer.observe(el));
+
+
+        });
+    </script>
 </body>
 </html>
